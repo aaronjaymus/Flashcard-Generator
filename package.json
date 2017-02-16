@@ -1,0 +1,26 @@
+{
+  "name": "flashcard-generator",
+  "version": "0.1.0",
+  "description": "Create basic or cloze deletion flashcards, then test yourself!",
+  "main": "flashCard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronjaymus/Flashcard-Generator.git"
+  },
+  "keywords": [
+    "flashcard"
+  ],
+  "author": "A. James McHale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaronjaymus/Flashcard-Generator/issues"
+  },
+  "homepage": "https://github.com/aaronjaymus/Flashcard-Generator#readme",
+  "dependencies": {
+    "inquirer": "^3.0.1",
+    "jsonfile": "^2.4.0"
+  }
+}
