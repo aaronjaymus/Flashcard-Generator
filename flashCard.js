@@ -62,7 +62,7 @@ function createBasic (){
 				type: 'input'
 			}
 		]).then(function(answers){
-			basicCardCreate(answers.front, answers.back);
+			basicCardCreate(answers.front.trim(), answers.back.trim());
 		});
 };
 //Creates cloze sentence(front of card)
@@ -93,7 +93,7 @@ function createClozeAnswer (sentence){
 				console.log("This text is not part of original sentence. Try again.");
 				createClozeAnswer(sentence);
 			} else {
-				clozeCardCreate(sentence, answer.answer);
+				clozeCardCreate(sentence.trim(), answer.answer.trim());
 			}
 		});
 }
