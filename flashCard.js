@@ -12,7 +12,7 @@ function start (){
 			{
 				name: 'toDo',
 				message: 'What would you like to do?',
-				choices: ['Create flashcards','Test myself', 'Quit'],
+				choices: ['Create flashcards','Test myself', 'Clear a deck', 'Quit'],
 				type: 'list'
 			}
 		]).then(function(answer){
@@ -23,15 +23,61 @@ function start (){
 				case 'Test myself':
 					testAmount();
 					break;
+				case 'Clear a deck':
+					clearType();
+					break;	
 				case 'Quit':
 					console.log("Come back again when you're ready.");
-					break;
+					break;	
 				default: 
 					console.log("Something went wrong.");
 					break;			
 			}
 		});
 };
+//Select which flashcard deck to clear
+function clearType (){
+	inquirer.prompt([
+			{
+				name: 'clearType',
+				message: 'Which deck of cards would you like to clear?',
+				choices: ['Basic', 'Cloze'],
+				type: 'list'
+			}
+		]).then(function(answer){
+			clearDeck(answer.clearType);
+		});
+}
+//Clear deck, confirm first
+function clearDeck(type){
+	inquirer.prompt([
+			{
+				name: 'youSure',
+				type: 'confirm',
+				message: 'Are you sure you want to clear the '+type.toLowerCase()+' deck?',
+				default: false
+			}
+		]).then(function(answer){
+			if(answer.youSure){
+				if(type === 'Basic'){
+					jsonfile.writeFile('basicCard.json', [], function(err){
+						if(err){
+							console.log(err);
+						}
+					});
+				}else{
+					jsonfile.writeFile('clozeCard.json', [], function(err){
+						if(err){
+							console.log(err);
+						}
+					});
+				}
+				start();
+			}else{
+				start();
+			}
+		})
+}
 //If user chooses to create cards, they need to choose basic or cloze
 function createType (){
 	inquirer.prompt([
@@ -230,7 +276,7 @@ function testType (count) {
 			}
 		});
 };
-
+//Runs basic test
 function basicTest (count){	
 	jsonfile.readFile('basicCard.json', function(err, data){
 		if(count>data.length){
@@ -272,7 +318,7 @@ function basicTest (count){
 		basicLoop();
 	});
 };
-
+//Runs cloze deletion test
 function clozeTest(count){
 	jsonfile.readFile('clozeCard.json', function(err, data){
 		if(count>data.length){
@@ -317,7 +363,7 @@ function clozeTest(count){
 		clozeLoop();
 	});
 };
-
+//Calculates score
 function calculateScore(correct, total){
 	var score = correct / total;
 	console.log("You scored a " + score.toFixed(2));
