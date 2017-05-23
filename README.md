@@ -2,4 +2,4 @@
 Flashcards! This node based application allows you to create a deck of Basic or Cloze flashcards and then quiz yourself.
 
 Opening the App:
-![Opening the App](http://imgur.com/EEwfHsK)
+![Opening the App](/images/open.PNG)
