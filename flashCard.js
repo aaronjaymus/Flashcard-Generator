@@ -367,6 +367,8 @@ function clozeTest(count){
 function calculateScore(correct, total){
 	var score = correct / total;
 	console.log("You scored a " + score.toFixed(2));
+	console.log("========================================");
+	start();
 };
 
 start();
