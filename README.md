@@ -6,4 +6,4 @@ Opening the App:
 
 ![Basic Card Runthrough](/images/basicCard.PNG)
 
-![Cloze Card Runthrough](/images/ClozeCard.PNG)
+![Cloze Card Runthrough](/images/clozeCard.PNG)
