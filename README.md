@@ -3,3 +3,7 @@ Flashcards! This node based application allows you to create a deck of Basic or 
 
 Opening the App:
 ![Opening the App](/images/open.PNG)
+
+![Basic Card Runthrough](/images/basicCard.PNG)
+
+![Cloze Card Runthrough](/images/ClozeCard.PNG)
